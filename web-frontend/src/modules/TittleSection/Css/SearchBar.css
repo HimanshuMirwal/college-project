@@ -1,0 +1,52 @@
+
+  .SearchbarDiv{
+    height: auto;
+    width: 100%;
+    /* border: 2px solid red; */
+    float: right;
+  }
+  .TextAreaSearch{
+    padding: 5% 1%;
+    width: 90%;
+  }
+  .search-icon{
+    float: left;
+    font-size: 30px;
+    color: rgba(51, 51, 51, 0.726);
+    line-height: 62px;
+  }
+  .search-icon:hover{
+    color: rgb(0, 0, 0);
+  }
+
+  .TextAreaSearchbar{
+    float:"left";
+    width:"80%"
+  }
+
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
+    
+  
+  /* Code for the scrollbar */
+    /* width */
+  ::-webkit-scrollbar {
+      width: 0px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+       background: #6A9C78;
+      ;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }

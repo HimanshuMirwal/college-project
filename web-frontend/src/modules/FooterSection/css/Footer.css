@@ -1,0 +1,11 @@
+.FooterMainDiv{
+    height: 150px;
+    width: 100%;
+    background-color: #6A9C78;
+    color: #C4E3CB;
+    text-align: center;
+    padding:  2% 5%;
+}
+.LineHeightFeedbackText{
+    line-height: 100%;
+}

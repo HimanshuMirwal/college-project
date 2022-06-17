@@ -1,0 +1,14 @@
+.mainSpinnerDiv {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: +1;
+    background: #6a9c78;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}

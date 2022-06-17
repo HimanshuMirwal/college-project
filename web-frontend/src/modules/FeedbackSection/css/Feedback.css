@@ -1,0 +1,25 @@
+.FeedbackMain{
+    /* border:1px solid yellowgreen; */
+    padding: 5% 5%;
+    background-color: #C4E3CB;
+    color:#6A9C78
+}
+.FormBlock{
+    height: auto;
+    padding:20px ;
+}
+.FeedbackMArgin{
+    margin: 2% auto;
+}
+.FeedbackLabel{
+    font-weight: bold;
+}
+.FeedbackText{
+    width:50%
+}
+@media screen and (max-width: 600px){
+    .FeedbackText{
+        width:80%
+    }
+
+}

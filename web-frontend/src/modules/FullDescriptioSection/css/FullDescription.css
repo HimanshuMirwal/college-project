@@ -1,0 +1,88 @@
+.FullDescriptionMain{
+    min-height: 800px;
+    height: auto;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+.descriptionHeading{
+   color: #6A9C78!important;
+    text-align:  start;
+}
+.descriptionParagraph{
+    color:#333;
+    width: 90%;
+    display: block;
+    margin: auto;
+    text-align: justify;
+    z-index: +1;
+    position: relative;
+    top: -93px;
+    background: white;
+    padding: 2% 5%;
+    border-radius: 10px;
+}
+.descriptionFirstPAragraph{
+    color:#333;
+}
+/*Floating Back-To-Top Button*/
+.myBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 18.5%;
+    left: 20px;
+    font-size: 12px;
+    /* padding: 1%; */
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    z-index: +10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*On Hover Color Change*/
+.myBtn:hover {
+    background-color: #333!important;
+}
+.thumbs-wrapper
+{
+    display: none;
+}
+.axis-vertical{
+    display: none;
+}
+.dot{
+    padding: 0.6%
+}
+.image{
+    height:600px;
+    width: 100%;
+    opacity: 0.5;
+}
+@media (max-width : 600px) {
+    .carousel .slide img {
+        width: 100%;
+        vertical-align: top;
+        border: 0;
+        height: 400px;
+    }
+}
+.descriptionParagraph h1 {
+    color: #6A9C78;
+}
+.descriptionParagraph h2 {
+    color: #6A9C78;
+}
+.descriptionParagraph h3 {
+    color: #6A9C78;
+}
+.descriptionParagraph h4 {
+    color: #6A9C78;
+}
+.descriptionParagraph h5 {
+    color: #6A9C78;
+}
+.descriptionParagraph h6 {
+    color: #6A9C78;
+}

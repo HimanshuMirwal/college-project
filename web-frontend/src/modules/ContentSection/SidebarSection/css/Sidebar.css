@@ -1,0 +1,71 @@
+.MainSideBar{
+    min-height: 100px;
+    height:auto;
+    background:#F9F8ED ;
+    overflow:"hidden";
+    /* border:1px solid red; */
+    /* border-to p:1px solid #C4E3CB; */
+    width: 25%;
+    float: right;
+}
+.ListItem{
+    padding: 0 10px;
+    font-weight: bold;
+    line-height: 50px;
+    color:#333;
+    float: left;
+    width: 100%;
+    border-bottom:2px solid #6A9C78 ;
+}
+
+.LinkSidebar{
+    text-decoration: none;
+    color:  #6A9C78;
+}
+.TrendingTopics{
+    width:100%;
+    height:auto;
+    background: linear-gradient(30deg, #6A9C78, #6A9C78 50%, #c4e3cb00 5%, #c4e3cb00 5%, #c4e3cb00 5%);
+    color: #C4E3CB;
+    padding: 0 5%;
+    border-bottom: 2px solid #6A9C78;
+    line-height: 100%;
+}
+.UList{
+    list-style-type:none;
+    width: 100%;
+    padding: 1% 0;
+}
+.UListDiv{
+    padding: 0;
+    overflow: scroll;
+}
+
+@media (max-width : 600px){
+    .ListItem{
+        padding: 0 10px;
+        font-weight: bold;
+        line-height: 50px;
+        color:#333;
+        float: left;
+        width: 50%;
+        border-bottom: none;
+    }
+    .MainSideBar{
+        min-height: 100px;
+        height:auto;
+        background:#F9F8ED ;
+        overflow:"hidden";
+        border-top:1px solid #C4E3CB;
+        width: 100%;
+        float: none;
+    }
+    .UList{
+        list-style-type:none;
+        width: 100%;
+        padding: 1% 5%;
+    }
+}
+::-webkit-scrollbar{
+    height: 0;
+}
