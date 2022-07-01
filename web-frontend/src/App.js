@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Main from "./Main";
 import FullDescription from "../src/modules/FullDescriptioSection/FullDescription";
 import AboutInfo from "./modules/AboutSection/AboutInfo";
+import Compiler from "./modules/CompilerSection/Compiler";
 
 
 export default class App extends React.Component {
@@ -19,6 +20,7 @@ export default class App extends React.Component {
                     <Route path="/title/:tittle" component={Main} />
                     <Route path="/subtitle/:tittle?/:subtittle" component={Main} />
                     <Route path="/about" component={AboutInfo} />
+                    <Route path="/compiler-web-blog" component={Compiler} />
                 </Router>
             </div>
         )

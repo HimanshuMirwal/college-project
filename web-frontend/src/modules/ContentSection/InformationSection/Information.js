@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import $ from 'jquery';
 import parse from 'html-react-parser'
 import Spinner from "../../Spinner/Spinner";
+import Pagination from "./Pagination";
 
 let lastHeight = $("#abc").height();
 let lastWidth = $("#abc").width();
@@ -29,6 +30,8 @@ export default class Information extends Component {
         window.CallFunction = this;
         this.state = {
             Data: [],
+            currentPage:1,
+            postPerPage:5
         }
         this.ChangeHeightFunction = this.ChangeHeightFunction.bind(this);
     }
@@ -37,7 +40,7 @@ export default class Information extends Component {
             .then((res) => {
                 console.log(res.data)
                 this.setState({
-                    Data: res.data
+                    Data: res.data.filter(value=>value.TittleName === this.props.TitleValue && value.subtittleName === this.props.SendSubTitleValue)
                 })
                 var clientHeight = document.getElementById('abc').offsetHeight;
                 this.props.heigthFunction(clientHeight);
@@ -47,15 +50,25 @@ export default class Information extends Component {
     ChangeHeightFunction(value) {
         this.props.heigthFunction(value);
     }
-
+    
     render() {
+        const indexOfLastPost = this.state.currentPage * this.state.postPerPage;
+        const indexOfFirstPage = indexOfLastPost - this.state.postPerPage;
+        const CurrentPost = this.state.Data.slice(indexOfFirstPage, indexOfLastPost);
+        
+        // Paginate
+        const Paginate = number => this.setState({
+            ...this.state,
+            currentPage:number 
+        })
         return (
             <>
                 {Object.keys(this.state.Data).length === 0 ? (<Spinner />) :
                     (<div className="mainInformation" id="abc">
+                        <Pagination postPerPage={this.state.postPerPage} Paginate={Paginate} TotalPosts={this.state.Data.length}/>
                         {
-                            this.state.Data.map((value) => {
-                                if (value.TittleName === this.props.TitleValue && value.subtittleName === this.props.SendSubTitleValue) {
+                            CurrentPost.map((value) => {
+                                 if (true) { 
                                     return (<div className="card" style={{ "width": "100%", "margin": "1% auto", background: "#F9F8ED" }} key={value._id + "kqlwnklqnwl"}>
                                         <div className="card-body">
                                             <h2 className="card-title InformationHeading" >{value.PlaceForTour}</h2>
@@ -79,7 +92,9 @@ export default class Information extends Component {
                                 }
                             })
                         }
-                    </div>)}
+                        <Pagination postPerPage={this.state.postPerPage} Paginate={Paginate} TotalPosts={this.state.Data.length}/>
+                    </div>
+                    )}
             </>
         )
     }
