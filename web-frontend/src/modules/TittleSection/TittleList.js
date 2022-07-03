@@ -1,14 +1,14 @@
 import React from 'react';
 import "./Css/TittleList.css";
 import Axios from "axios";
-import { Link } from 'react-router-dom';
-import SearchBar from "./SearchBar";
+import "./helper.js";
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            DataList: [],
-            // {TittleName:"askjbksj"}, {TittleName:"kasnlsakn"},{TittleName:"askbkab"}, {TittleName:"8wuwq"}, {TittleName:"anlqwknl"}, {TittleName:"ankan"}, {TittleName:"akjkjank"}, {TittleName:"alnlanlas"}, {TittleName:"alnsaln"}
+            DataList: [            
+                // {TittleName:"askjbksj"}, {TittleName:"kasnlsakn"},{TittleName:"askbkab"}, {TittleName:"8wuwq"}, {TittleName:"anlqwknl"}, {TittleName:"ankan"}, {TittleName:"akjkjank"}, {TittleName:"alnlanlas"}, {TittleName:"alnsaln"}
+        ],
             TitleValue: null,
             dataSubTitle: [],
             toggle: false
@@ -20,6 +20,7 @@ class App extends React.Component {
             .then(
                 (result) => {
                     this.setState({
+                        ...this.state,
                         DataList: result.data
                     });
                 },
@@ -40,17 +41,12 @@ class App extends React.Component {
         (this.state.toggle) ? this.setState({ toggle: false }) : this.setState({ toggle: true });
     }
     render() {
+        
         return (
             <>
-                <div className='parentDiv'>
-                    <div className='SearchbarParentDiv'>
-                        <SearchBar />
-                    </div>
-                    <div className='horizontalMenuDiv'>
-                        {/* <FullPage DataList={this.state.DataList} dataSubTitle={this.state.dataSubTitle} /> */}
-                        <HorizontalList DataList={this.state.DataList} dataSubTitle={this.state.dataSubTitle} />
-                    </div>
-                </div>
+                <nav class="navbar navbar-expand-lg justify-content-start parentDiv h-auto" style={{ background: "#6A9C78", color: "whitesmoke" }}>
+                <HorizontalList DataList={this.state.DataList} dataSubTitle={this.state.dataSubTitle} />
+                </nav>
             </>
         );
     }
@@ -59,124 +55,33 @@ const HorizontalList = (props) => {
     return (
         props.DataList.map((data) => {
             return (<>
-                <div class="dropdown">
-                    <button class="btn  dropdown-toggle" style={{ background: "#6A9C78" }} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {data.TittleName}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        {
-                            props.dataSubTitle.map(subtittle => {
+                <div class="dropdown itemsLinks" >
+                    <span class="nav-item dropdown">
+                        <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {data.TittleName}
+                        </span>
+                        <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            {
+                                props.dataSubTitle.map(subtittle => {
 
-                                if (subtittle.TittleName === data.TittleName) {
-                                    return (<a class="dropdown-item" href={"/subtitle/" + data.TittleName + "/" + subtittle.subtittleName}>
-                                        {subtittle.subtittleName}
-                                    </a>)
-                                }
-                            })
-                        }
-
-                    </div>
-                </div>
-                {/* <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                {data.TittleName}
+                                    if (subtittle.TittleName === data.TittleName) {
+                                        return (<li>
+                                            <a class="dropdown-item"
+                                                href={"/subtitle/" + data.TittleName + "/" + subtittle.subtittleName}>
+                                                {subtittle.subtittleName}
                                             </a>
-                                            <div class="dropdown-menu DropDownMenu" style={{display:"block"}} aria-labelledby="navbarDropdown">
-                                                {
-                                                    props.dataSubTitle.map(subtittle => {
-                                                        
-                                                        if (subtittle.TittleName === data.TittleName) {
-                                                            return (<Link to={{
-                                                                pathname: "/subtitle/" + data.TittleName + "/" + subtittle.subtittleName,
-                                                                TitleValue: subtittle.TittleName,
-                                                                SubTittleValue: subtittle.subtittleName
-                                                            }}
-                                                                // className="dropdown-item dropDownItem"
-                                                            >{subtittle.subtittleName}
-                                                            </Link>)
-                                                        }
-                                                    })
-                                                }
-                                            </div> */}
+                                        </li>)
+                                    }
+                                })
+                            }
+                        </ul>
+                    </span>
+
+                </div>
 
             </>)
 
         })
     )
 }
-
-
-const FullPage = (props) => {
-    return (
-        <p style={{ margin: "0", width: "100%", height: "auto" }}>
-            <ul class="navbar-nav mr-auto">
-                <p style={{ margin: "0", width: "100%" }} className="">
-                    {
-                        props.DataList.map((data) => {
-                            return (<>
-                                <li class="nav-item dropdown FullPage1stLiItem">
-                                    <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ float: "left", marginRight: "10px" }}>
-                                        {data.TittleName}
-                                    </a>
-                                    <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
-                                        {
-                                            props.dataSubTitle.map(subtittle => {
-                                                if (subtittle.TittleName === data.TittleName) {
-                                                    return (<Link to={{
-                                                        pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
-                                                        TitleValue: subtittle.TittleName,
-                                                        SubTittleValue: subtittle.subtittleName
-                                                    }}
-                                                        className="dropdown-item dropDownItem"
-                                                    >{subtittle.subtittleName}
-                                                    </Link>)
-                                                }
-                                            })
-                                        }
-                                    </div>
-                                </li>
-
-                            </>)
-
-                        })
-                    }
-                </p>
-
-
-            </ul>
-        </p>
-    )
-}
-// const MobilePage = (props)=>{
-//     return( 
-//             <ul class="navbar-nav mr-auto ULDisplay" >
-//                                 {
-//                                     props.DataList.map((data) => {
-//                                         return (<>
-//                                             <li class="nav-item dropdown">
-//                                             <a class="nav-link dropdown-toggle TittleLink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-//                                                 {data.TittleName}
-//                                             </a>
-//                                             <div class="dropdown-menu DropDownMenu" aria-labelledby="navbarDropdown">
-//                                                 {
-//                                                     props.dataSubTitle.map(subtittle => {
-//                                                         if (subtittle.TittleName === data.TittleName) {
-//                                                             return (<Link to={{
-//                                                                 pathname: "/subtitle/" + subtittle.TittleName + "/" + subtittle.subtittleName,
-//                                                                 TitleValue: subtittle.TittleName,
-//                                                                 SubTittleValue: subtittle.subtittleName
-//                                                             }}
-//                                                                 className="dropdown-item dropDownItem"
-//                                                             >{subtittle.subtittleName}
-//                                                             </Link>)
-//                                                         }
-//                                                     })
-//                                                 }
-//                                             </div>
-//                                         </li>
-//                                         </>)
-//                                     })
-//                                 }
-//                             </ul>
-//     )
-//     }
 export default App;

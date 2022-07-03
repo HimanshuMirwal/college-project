@@ -7,7 +7,7 @@
   }
   .TextAreaSearch{
     padding: 5% 1%;
-    width: 90%;
+    width: 100%;
   }
   .search-icon{
     float: left;
@@ -21,7 +21,7 @@
 
   .TextAreaSearchbar{
     float:"left";
-    width:"80%"
+    width:"100%"
   }
 
     ::-webkit-scrollbar {

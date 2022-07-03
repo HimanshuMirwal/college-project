@@ -48,7 +48,9 @@ function compile() {
         console.log(res);
     if(res.data.output){
         setUserOutput(res.data.output);
-    }else{
+    }else if(res.data.message){
+		setUserOutput(res.data.message);
+	}else{
         setUserOutput(res.data);
     }
     console.log(res.data.output)

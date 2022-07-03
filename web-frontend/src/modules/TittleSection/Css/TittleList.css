@@ -1,71 +1,19 @@
 .parentDiv {
-    height: auto;
-    width:"100%";
-    background:#6A9C78;
-    padding:2% 5%;
-    justify-content:"center";
-    display:"flex";
-    flex-direction:"row";
-    align-items:"center";
-    overflow: hidden;
+  /* overflow-x: scroll; */
+  white-space: nowrap;
 }
-.TittleLink {
+.itemsLinks{
+  display: flex;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 14px;
   text-decoration: none;
-  color: #F9F8ED;
-  font-weight: 600;
-  font-size: 20px;
 }
 
-.TittleLink:hover {
-  color: #C4E3CB;
-}
 
-.DropDownMenu {
-  background: #C4E3CB;
-  padding: 0;
-  margin-top: 40px;
-  z-index: +1;
-}
-
-.dropDownItem {
-  padding: 2px;
-  color: #6A9C78;
-  font-weight: bold;
-}
-
-.dropDownItem:hover {
-  background: #6A9C78;
-  color: #C4E3CB;
-  text-decoration: 2px underline #C4E3CB;
-}
-.SearchbarParentDiv{
-  height:auto;
-  width:25%;
-  background:none;
-  float: left;
-}
-.horizontalMenuDiv{
-  height:100px;
-  width:75%;
-  padding :0 2%;
-  overflow-x:scroll;
-  display:flex;
-  float: right;
-  flex-direction: row;
-}
 @media (max-width : 900px) {
-  .SearchbarParentDiv {
-    height: auto;
-    width: 100%;
-  }
-  .horizontalMenuDiv{
-    height:auto;
-    width:100%;
-    padding :2%;
-    overflow-x:scroll;
-    display:flex;
-    float: right;
-  }
+  
 }
 
 ::-webkit-scrollbar {

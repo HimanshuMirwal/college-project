@@ -1,0 +1,14 @@
+.menuOrder{
+    order:1
+}
+.searchboxOrder{
+    order: 2;
+}
+@media (max-width : 950px) {
+    .menuOrder{
+        order:2
+    }
+    .searchboxOrder{
+        order: 1;
+    }
+}

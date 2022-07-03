@@ -64,7 +64,6 @@ const App = () => {
           autoHighlight
           options={myOptions}
           id="myPassword"
-
           renderInput={(params) => (
             <>
             <div className="TextAreaSearchbar">

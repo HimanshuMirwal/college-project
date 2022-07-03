@@ -8,6 +8,11 @@ const qs = require("qs");
 
 
 const uri = "mongodb+srv://admin-himanshu:test123@cluster0.qewzz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 mongoose.connect(uri,
   { useUnifiedTopology: true,
     useNewUrlParser: true 
@@ -16,11 +21,6 @@ mongoose.connect(uri,
 }).catch(Err=>{
   console.log("Error occur", Err)
 });
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
-
 require('dotenv').config();
 
 app.use(cors());
